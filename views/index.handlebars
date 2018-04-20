@@ -1,0 +1,152 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Groups <span class="sr-only">(current)</span></a>
+                </li>
+                {{# each group }}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/group/{{this._id}}">{{ this.name }}</a>
+                    </li>
+                {{/each}}
+            </ul>
+        </nav>
+
+        <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+        	<div class="mainbody">
+            <h1 style="color: rgb(246,182,182);">Dashboard</h1>
+
+            <section class="row text-center placeholders">
+                <div class="col-6 col-sm-3 placeholder">
+                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalNorm">
+                        Add Group
+                    </button>
+                </div>
+                <div class="col-6 col-sm-3 placeholder">
+                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalNorm1">
+                        Add Friend
+                    </button>
+                </div>
+            </section>
+        </div>
+            <h2>Friends List</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Friends Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                        <th>Amount</th>
+                        <th>Payment</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {{# each friend}}
+                            <tr>
+                                <td>{{this.name}}</td>
+                                <td>{{this.email}}</td>
+                                <td>{{this.action}}</td>
+                                <td>{{this.amount}}</td>
+                                {{#if this.amount}}
+                                <td>
+                                    <form action="/users/charge" method="POST">
+                                        <input type="hidden" name="friend_email" value="{{this.email}}">
+                                        <input type="hidden" name="amount" value="{{this.amount}}">
+                                    <script
+                                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                        data-key="pk_test_7XgFxKBbjV4WsERwqqCLHpdX"
+                                        data-name="Pay Friends debt"
+                                        data-image="/img/header_image.png"
+                                        data-locale="auto">
+                                    </script>
+                                    </form>
+                                    </div>
+                                </td>
+                                  {{/if}}
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+
+        <div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+
+                        <h4 class="modal-title" id="myModalLabel">
+                            Add group Details
+                        </h4>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+
+                        <form method="post" action="/users/addgroup">
+                            <div class="form-group">
+                                <label>Group Name</label>
+                                <input type="text" class="form-control" name="group_name" placeholder="group name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Group Description</label>
+                                <input type="text" class="form-control" name="group_description" placeholder="group description details" required>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+
+
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModalNorm1" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+
+                        <h4 class="modal-title" id="myModalLabel">
+                            Add Friends Details
+                        </h4>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+
+                        <form method="post" action="/users/addFriend">
+                            <div class="form-group">
+                                <label>Friend email</label>
+                                <input type="email" class="form-control" name="friend_email" placeholder="email of the member" required>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+
+
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>

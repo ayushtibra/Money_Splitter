@@ -1,0 +1,322 @@
+<div class="container-fluid">
+      <div class="row">
+      <!--  <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar"> 
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Members<span class="sr-only">(current)</span></a>
+            </li>
+            {{# each member }}
+            <li class="nav-item">
+                    {{ this.first_name}} {{ this.last_name }}
+            </li>
+            {{/each}}
+          </ul>
+        </nav>  -->
+
+
+<main class="col-sm-12 ml-sm-auto col-md-12 pt-3" role="main">
+    <div class="mainbody">
+          <h1 style="color: rgb(246,182,182);">Manager Dashboard</h1>
+
+<input type="button" onclick="location.href='/users/manager/';" value="Back" />
+
+        <div  class="chart-container" style="height:800px; width: 800px;">
+            <canvas id="myChart" style="background-color: #cbffda"></canvas>
+            <br>
+            <canvas id="myChart2" style="background-color: #fdcdff"></canvas>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+
+        <script>
+            let myChart = document.getElementById('myChart').getContext('2d');
+            let myChart2 = document.getElementById('myChart2').getContext('2d');
+
+
+            // Global Options
+            Chart.defaults.global.defaultFontFamily = 'Lato';
+            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontColor = '#777';
+
+            let massPopChart = new Chart(myChart, {
+                type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                data:{
+                    labels:['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'],
+                    datasets:[{
+                        label:'Login Count',
+                        data:[
+                            617,
+                            810,
+                            500,
+                            659,
+                            512,
+                            507,
+                            390
+                        ],
+                        //backgroundColor:'green',
+                        backgroundColor:[
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)',
+                            'rgba(255, 159, 64, 0.6)',
+                            'rgba(255, 19, 164, 0.6)',
+                            'rgba(255, 99, 132, 0.6)'
+                        ],
+                        borderWidth:1,
+                        borderColor:'#777',
+                        hoverBorderWidth:3,
+                        hoverBorderColor:'#000'
+                    }]
+                },
+                options:{
+                    title:{
+                        display:true,
+                        text:'No of Customers Logged in Last 7 days',
+                        fontSize:25
+                    },
+                    legend:{
+                        display:true,
+                        position:'right',
+                        labels:{
+                            fontColor:'#000'
+                        }
+                    },
+                    layout:{
+                        padding:{
+                            left:50,
+                            right:0,
+                            bottom:0,
+                            top:0
+                        }
+                    },
+                    tooltips:{
+                        enabled:true
+                    }
+                }
+            });
+            let massPopChart2 = new Chart(myChart2, {
+                type:'polarArea', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                data:{
+                    labels:['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'],
+                    datasets:[{
+                        label:'Hrs',
+                        data:[
+                            181,
+                            45,
+                            153,
+                            60,
+                            106,
+                            219,
+                            105
+                        ],
+                        //backgroundColor:'green',
+                        backgroundColor:[
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)',
+                            'rgba(255, 159, 64, 0.6)',
+                            'rgba(255, 19, 164, 0.6)',
+                            'rgba(255, 99, 132, 0.6)'
+                        ],
+                        borderWidth:1,
+                        borderColor:'#777',
+                        hoverBorderWidth:3,
+                        hoverBorderColor:'#000'
+                    }]
+                },
+                options:{
+                    title:{
+                        display:true,
+                        text:'No of Hours Customers used our services',
+                        fontSize:25
+                    },
+                    legend:{
+                        display:true,
+                        position:'right',
+                        labels:{
+                            fontColor:'#000'
+                        }
+                    },
+                    layout:{
+                        padding:{
+                            left:50,
+                            right:0,
+                            bottom:0,
+                            top:0
+                        }
+                    },
+                    tooltips:{
+                        enabled:true
+                    }
+                }
+            });
+        </script>
+
+    </div>
+     
+
+<!--
+<div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog" 
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <button type="button" class="close" 
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Add Member Details
+                </h4>
+            </div>
+            
+            
+            <div class="modal-body">
+                
+               <form method="post"   id = "friend1" action="/users/addMember/{{groupId}}">
+                <div class="form-group">
+                        <label>Friend email</label>
+                        <select form="friend1" class="form-control" name="member_email" placeholder="Enter Friend Details">
+
+                            {{# each friend}}
+                            <option value="{{this.email}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+
+                </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                            Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+<!-- <div class="modal fade" id="myModalNorm1" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+            
+             <div class="modal-header">
+                 <button type="button" class="close"
+                         data-dismiss="modal">
+                     <span aria-hidden="true">&times;</span>
+                     <span class="sr-only">Close</span>
+                 </button>
+                 <h4 class="modal-title" id="myModalLabel">
+                     Add member Details
+                 </h4>
+             </div>
+
+             
+             <div class="modal-body">
+
+                 <form method="post" action ="/users/group/addBill/{{groupId}}">
+                     <div class="form-group">
+                         <label>Note</label>
+                         <input type="text" class="form-control" name="note" placeholder="Comment" required>
+                     </div>
+                     <div class="form-group">
+                         <label>Amount</label>
+                         <input type="number" class="form-control" name="amount" placeholder="Amount" required>
+                     </div>
+                     <div class="form-group">
+                         <div id="dynamicInput">
+                             Divided Between<br>
+                             <input list="friends" type="email" name="myInputs[]" placeholder="Partners name">
+                             <datalist id="friends">
+                                 {{# each member}}
+                                     <option value="{{this.email}}">
+                                 {{/each}}
+                             </datalist>
+                             <input type="number"  name = "myInputs1[]" placeholder="amount">
+                         </div>
+                     </div>
+                     <input type="button" value="Add another text input" onClick="addInput('dynamicInput');">
+                     <button type="submit" class="btn btn-default">Submit</button>
+                 </form>
+             </div>
+
+             
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-default"
+                         data-dismiss="modal">
+                     Close
+                 </button>
+             </div>
+         </div>
+     </div>
+ </div>
+-->
+ <!-- <div class="container">
+       <div class="row">
+        <div class="col-md-4">
+          </div>
+        <div class="col-md-8">
+            <div class="chat" id="chat"></div>
+            <form id="messageForm">
+                <div class="form-group">
+                    <label>Enter Message</label>
+                    <textarea class="form-control" id="message" cols="30" rows="10"></textarea>
+                    <br>
+                    <input type="submit" class="btn btn-primary" value="SendMessage" />
+
+                </div>
+            </form>
+        </div>
+       </div>
+   </div>
+-->
+   <script>
+       $(function(){
+           var socket = io.connect();
+           var $messageForm = $('#messageForm');
+           var $message = $('#message');
+           var $chat = $('#chat');
+            var $users = $('#users');
+            var $username = $('#username');
+
+            $messageForm.submit(function(e){
+                e.preventDefault();
+                socket.emit('send message',$message.val());
+                $message.val('');
+            });
+
+            socket.on('new message',function(data){
+                $chat.append('<div class="well">' +data.msg + '</div>');
+            });
+       });
+    
+   </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+
+
+ <script type="text/javascript">
+  var counter = 1;
+var limit = 10;
+function addInput(divName){
+     if (counter == limit)  {
+          alert("You have reached the limit of adding " + counter + " inputs");
+     }
+     else {
+          var newdiv = document.createElement('div');
+          newdiv.innerHTML = "Divided Between " + (counter + 1) + "<br><input list='friends' type='email' name='myInputs[]'> <input type='number' name='myInputs1[]'>";
+          document.getElementById(divName).appendChild(newdiv);
+          counter++;
+     }
+}
+</script>

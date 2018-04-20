@@ -1,0 +1,23 @@
+body{
+	background-image: url("background4.jpeg");
+	
+}
+
+.mainbody{
+	margin-top: 35px;
+}
+
+#chatmsg{
+	padding-left: 35px;
+	margin-bottom: 10px;
+	padding-top: 5px;
+	width: 109%;
+
+}
+
+#msgchat{
+	margin-left: 35px;
+	padding: 5px;
+	width: 105%;
+	
+}

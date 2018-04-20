@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SMNF</title>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+   {{#each css}}
+        <link rel="stylesheet" href="/css/{{this}}" />
+    {{/each}}
+</head>
+<body>
+		<div class="container-fluid">
+          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Split Money Not Friends</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+        {{#if user}}
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/users/notify" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Notifications
+            </a>
+            <ul class="dropdown-menu">
+                        <li><p><a href="#" id="left">Link1</a><button type="submit" class="btn btn-default" id="right">Pay</button></p></li>
+                        <li><a href="#">Link2</a></li>
+                        <li><a href="#">Link3</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Objects</li>
+                        <li><a href="#">Object1</a></li>
+                        <li><a href="#">Object2</a></li>
+                      </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/logout"> Logout</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="/users/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/register">Register</a>
+          </li>
+        {{/if}}  
+        </ul>
+      </div>
+    </nav>
+
+
+
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+           {{#if success_msg}}
+            <div class="alert alert-success ">{{success_msg}}</div>
+
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+          {{/if}}
+        </div>  
+        <div class="col-lg-12">
+          {{{body}}}
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy; 2017 SplitMoneyNotFriends, Inc.</p>
+      </footer>
+
+    </div> <!-- /container -->
+</body>
+</html>

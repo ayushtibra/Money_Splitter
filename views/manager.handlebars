@@ -1,0 +1,231 @@
+<div class="container-fluid">
+      <div class="row">
+      <!--  <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar"> 
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Members<span class="sr-only">(current)</span></a>
+            </li>
+            {{# each member }}
+            <li class="nav-item">
+                    {{ this.first_name}} {{ this.last_name }}
+            </li>
+            {{/each}}
+          </ul>
+        </nav>  -->
+
+
+<main class="col-sm-12 ml-sm-auto col-md-12 pt-3" role="main">
+    <div class="mainbody">
+          <h1 style="color: rgb(246,182,182);">Manager Dashboard</h1>
+
+<input type="button" onclick="location.href='/users/manager/report';" value="Reports" />
+
+        
+    </div>
+        <h2>Feedbacks</h2>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Sr.No</th>
+                  <th>Message</th>
+                  <!--<th>Flag</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Nice Platform to split the Bill</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>You have to add more Features like pay via PayTm</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Nice!</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Get More Updates</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>It's very slow so work on it</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>bad expiernece as it is not accept my bajaj payment card</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Design is not so good so improve it.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </main>
+
+<!--
+<div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog" 
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <button type="button" class="close" 
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Add Member Details
+                </h4>
+            </div>
+            
+            
+            <div class="modal-body">
+                
+               <form method="post"   id = "friend1" action="/users/addMember/{{groupId}}">
+                <div class="form-group">
+                        <label>Friend email</label>
+                        <select form="friend1" class="form-control" name="member_email" placeholder="Enter Friend Details">
+
+                            {{# each friend}}
+                            <option value="{{this.email}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+
+                </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                            Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+<!-- <div class="modal fade" id="myModalNorm1" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+            
+             <div class="modal-header">
+                 <button type="button" class="close"
+                         data-dismiss="modal">
+                     <span aria-hidden="true">&times;</span>
+                     <span class="sr-only">Close</span>
+                 </button>
+                 <h4 class="modal-title" id="myModalLabel">
+                     Add member Details
+                 </h4>
+             </div>
+
+             
+             <div class="modal-body">
+
+                 <form method="post" action ="/users/group/addBill/{{groupId}}">
+                     <div class="form-group">
+                         <label>Note</label>
+                         <input type="text" class="form-control" name="note" placeholder="Comment" required>
+                     </div>
+                     <div class="form-group">
+                         <label>Amount</label>
+                         <input type="number" class="form-control" name="amount" placeholder="Amount" required>
+                     </div>
+                     <div class="form-group">
+                         <div id="dynamicInput">
+                             Divided Between<br>
+                             <input list="friends" type="email" name="myInputs[]" placeholder="Partners name">
+                             <datalist id="friends">
+                                 {{# each member}}
+                                     <option value="{{this.email}}">
+                                 {{/each}}
+                             </datalist>
+                             <input type="number"  name = "myInputs1[]" placeholder="amount">
+                         </div>
+                     </div>
+                     <input type="button" value="Add another text input" onClick="addInput('dynamicInput');">
+                     <button type="submit" class="btn btn-default">Submit</button>
+                 </form>
+             </div>
+
+             
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-default"
+                         data-dismiss="modal">
+                     Close
+                 </button>
+             </div>
+         </div>
+     </div>
+ </div>
+-->
+ <!-- <div class="container">
+       <div class="row">
+        <div class="col-md-4">
+          </div>
+        <div class="col-md-8">
+            <div class="chat" id="chat"></div>
+            <form id="messageForm">
+                <div class="form-group">
+                    <label>Enter Message</label>
+                    <textarea class="form-control" id="message" cols="30" rows="10"></textarea>
+                    <br>
+                    <input type="submit" class="btn btn-primary" value="SendMessage" />
+
+                </div>
+            </form>
+        </div>
+       </div>
+   </div>
+-->
+   <script>
+       $(function(){
+           var socket = io.connect();
+           var $messageForm = $('#messageForm');
+           var $message = $('#message');
+           var $chat = $('#chat');
+            var $users = $('#users');
+            var $username = $('#username');
+
+            $messageForm.submit(function(e){
+                e.preventDefault();
+                socket.emit('send message',$message.val());
+                $message.val('');
+            });
+
+            socket.on('new message',function(data){
+                $chat.append('<div class="well">' +data.msg + '</div>');
+            });
+       });
+    
+   </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+
+
+ <script type="text/javascript">
+  var counter = 1;
+var limit = 10;
+function addInput(divName){
+     if (counter == limit)  {
+          alert("You have reached the limit of adding " + counter + " inputs");
+     }
+     else {
+          var newdiv = document.createElement('div');
+          newdiv.innerHTML = "Divided Between " + (counter + 1) + "<br><input list='friends' type='email' name='myInputs[]'> <input type='number' name='myInputs1[]'>";
+          document.getElementById(divName).appendChild(newdiv);
+          counter++;
+     }
+}
+</script>

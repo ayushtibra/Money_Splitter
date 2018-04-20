@@ -1,0 +1,33 @@
+{
+  "name": "loginapp",
+  "version": "1.0.0",
+  "description": "loginapp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "mongodb": "*",
+    "mongoose": "4.10.8",
+    "mongoose-unique-validator": "^1.0.6",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "socket.io": "^2.0.4",
+    "stripe": "^5.3.0"
+  },
+
+  "author": "Vinay Jain",
+  "license": "ISC"
+}
