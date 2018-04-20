@@ -11,7 +11,7 @@ The activities in the app :-
 This Page is used for user registration. A user will register using his first name, last name, email-id, phone no.
 and ofcourse password. On successful registration he is directed to MainLogin_page.
 <div>
-<img src="/Screenshots/Register.png" alt="Drawing"  height="300" width="180" >
+<img src="/Screenshots/Register.png">
 </div>
 
 ## 2. MainLogin_Page
@@ -20,7 +20,7 @@ We have also a Manager login where admin can login and see the feedbacks.
 A user can login using his email-id and password. On successful login he is directed to Friend Dashboard where you have to 
 add friend and create a group.
 <div>
-<img src="/Screenshots/Main_Login.png" alt="Drawing"  height="300" width="180" >
+<img src="/Screenshots/Main_Login.png">
 </div>
 
 ## 3. Add Friend
