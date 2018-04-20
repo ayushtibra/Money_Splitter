@@ -28,14 +28,14 @@ This activity will appear after you click the 'Add Friend' option on the dashboa
 in your database and then you can add those friend in the group later.
 Also friend email-id has to be in database (means they also use the platform if they are not register to this then an invitation mail is gone)
 <div>
-<img src="/Screenshots/friend_dashboard.png" alt="Drawing"  height="300" width="180" >
+<img src="/Screenshots/friend_dashboard.png">
 </div>
 
 ## 4. Create Group
 This activity will appear after you click the 'Ad group' option on the dashboard. Here you have to mention the group name and its description
 what this group is about.And when you submit this details your Groups are shown in list as below-
 After click on particular group you will redirected to that group name dashboard.
-<img src="/Screenshots/friend_dashboard2.png" alt="Drawing"  height="300" width="180" >
+<img src="/Screenshots/friend_dashboard2.png">
 </div>
 
 ## 5. Add Member
@@ -43,7 +43,7 @@ This activity will appear after you click the 'Add group' option on the dashboar
 that is already in your dashboard means the thing which we done in #3 step. Firstly you have to add that particular friend in your system
 in Add Friend step and then that friend add in your group if it is present already.
 <div>
-<img src="/Screenshots/group_dashboard.png" alt="Drawing"  height="300" width="180" >
+<img src="/Screenshots/group_dashboard.png">
 </div>
 
 ## 5. Add Bill
@@ -52,14 +52,14 @@ This activity will appear after you click the 'Add Bill' option on the dashboard
 If you lent the money to your friend then bill on dashboard has sign (+) in your dashboard and (-) on your friends dashboard.
 (+) means your friend has to pay the due amount and vice-versa.
 <div>
-<img src="/Screenshots/add_bill.png" alt="Drawing"  height="300" width="180" >
+<img src="/Screenshots/add_bill.png">
 </div>
 
 ## 6. Chat Box
 This activity displays a list of all the group chats having one of the members as the user who logged in.This chatbox appear in particular
 group you are in and it's basically a chat box where you send and receive messages.
 <div>
-<img src="/Screenshots/chat.png" alt="Drawing"  height="300" width="180" >
+<img src="/Screenshots/chat.png">
 </div>
 
 ## 7. Settle Up and Payment
@@ -70,20 +70,20 @@ if pay in full.
 ## 7. Feedback
 This activity is optional, if user find any mistakes or have a great idea that has to be implemented in this platform you can suggest that too. 
 <div>
-<img src="/Screenshots/feedback.png" alt="Drawing"  height="300" width="180" >
+<img src="/Screenshots/feedback.png">
 </div>
 
 -->This is supportable on all devices as well (mobile,laptops,different screen sizes doesn't matter)
 
-To run this Prject on your system-
+##To run this Prject on your system-
 1. You have mongodb on your system.
 2. You have NodeJs install on your system.
 
-How to run this project-
+##How to run this project-
 -On cmd line where this project is installed first run mongod
 then npm start or nodemon(if you have that on you pc).
 
-On Browser type-
+##On Browser type-
 localhost:3000
 and register first
 then login
