@@ -75,15 +75,15 @@ This activity is optional, if user find any mistakes or have a great idea that h
 
 -->This is supportable on all devices as well (mobile,laptops,different screen sizes doesn't matter)
 
-##To run this Prject on your system-
+## To run this Prject on your system-
 1. You have mongodb on your system.
 2. You have NodeJs install on your system.
 
-##How to run this project-
+## How to run this project-
 -On cmd line where this project is installed first run mongod
 then npm start or nodemon(if you have that on you pc).
 
-##On Browser type-
+## On Browser type-
 localhost:3000
 and register first
 then login
